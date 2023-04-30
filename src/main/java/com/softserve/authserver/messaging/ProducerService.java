@@ -1,5 +1,6 @@
 package com.softserve.authserver.messaging;
 
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,11 +19,11 @@ public class ProducerService {
     @Value("${spring.rabbitmq.exchange}")
     private String exchange;
 
-    @Value("${spring.rabbitmq.routingkey}")
-    private String routingkey;
+    @Value("${spring.rabbitmq.tokenroutingkey}")
+    private String tokenroutingkey;
 
     public void sendMessage(String token) {
-        rabbitTemplate.convertAndSend(exchange,routingkey, token);
+        rabbitTemplate.convertAndSend(exchange,tokenroutingkey, token);
     }
 
 }

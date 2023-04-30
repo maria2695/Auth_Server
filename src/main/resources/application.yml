@@ -10,4 +10,7 @@ spring:
     exchange: user.exchange
     queue: user.queue
     authqueue: auth.queue
+    tokenqueue: token.queue
     routingkey: user.routingkey
+    authroutingkey: auth.routingkey
+    tokenroutingkey: token.routingkey
